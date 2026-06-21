@@ -17,7 +17,7 @@ jobs:
       - name: Get & Cauche Dependencies
       
 
-        uses: ./.github/actions
+        uses: ./.github/workflows/actions
 
       # - name: Cache dependencies
       #   id: cache
