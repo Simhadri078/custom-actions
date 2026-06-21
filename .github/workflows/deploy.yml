@@ -10,9 +10,9 @@ jobs:
       - name: Get code
         uses: actions/checkout@v4
       - name: Debug files
-          run: |
-            pwd
-            find .github -type f
+        run: |
+          pwd
+          find .github -type f
       
       - name: Get & Cauche Dependencies
       
