@@ -9,14 +9,12 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v4
-      - name: Debug files
-        run: |
-          pwd
-          find .github -type f
+      # - name: Debug files
+      #   run: |
+      #     pwd
+      #     find .github -type f
       
       - name: Get & Cauche Dependencies
-      
-
         uses: ./.github/workflows/actions
 
       # - name: Cache dependencies
@@ -35,15 +33,17 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v4
-      - name: Cache dependencies
-        id: cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
-      - name: Install dependencies
-        # if: steps.cache.outputs.cache-hit != 'true'
-        run: npm ci
+      - name: Get & Cauche Dependencies
+        uses: ./.github/workflows/actions
+      # - name: Cache dependencies
+      #   id: cache
+      #   uses: actions/cache@v4
+      #   with:
+      #     path: ~/.npm
+      #     key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+      # - name: Install dependencies
+      #    if: steps.cache.outputs.cache-hit != 'true'
+      #   run: npm ci
       - name: Test code
         id: run-tests
         run: npm run test
@@ -59,15 +59,17 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v4
-      - name: Cache dependencies
-        id: cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
-      - name: Install dependencies
-        # if: steps.cache.outputs.cache-hit != 'true'
-        run: npm ci
+      - name: Get & Cauche Dependencies
+        uses: ./.github/workflows/actions
+      # - name: Cache dependencies
+      #   id: cache
+      #   uses: actions/cache@v4
+      #   with:
+      #     path: ~/.npm
+      #     key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+      # - name: Install dependencies
+      #    if: steps.cache.outputs.cache-hit != 'true'
+      #   run: npm ci
       - name: Build website
         run: npm run build
       - name: Upload artifacts
