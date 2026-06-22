@@ -97,6 +97,9 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v4
+      - name: Verify action files
+        run: |
+          ls -la .github/workflows/deploy-s3-javascript
       - name: Debug files
         run: |
           find .github -type f
