@@ -95,5 +95,9 @@ jobs:
   information:
     runs-on: ubuntu-latest
     steps:
+      - name: Debug files
+        run: |
+          pwd
+          find .github -type f
       - name: Performing js custom action
         uses: ./.github/workflows/deploy-s3-javascript
