@@ -101,4 +101,4 @@ jobs:
         run: |
           find .github -type f
       - name: Performing js custom action
-        uses: ./.github/workflows/deploy-s3-javascript
+        uses: ./.github/workflows/deploy-s3-javascript/jsaction.yml
