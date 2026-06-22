@@ -97,5 +97,8 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v4
+      - name: Debug files
+        run: |
+          find .github -type f
       - name: Performing js custom action
         uses: ./.github/workflows/deploy-s3-javascript
